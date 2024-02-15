@@ -8,30 +8,44 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <div className="container">
       <Grid container spacing={2}>
-        <Grid xs={8} spacing={2}>
-          <Button variant="text">Primary</Button>
-          <Button variant="contained">Primary</Button>
-          <Button variant="outlined">Primary</Button>
+        <Grid xs={12} spacing={2}>
+          <Button sx={{ margin: '1rem' }} variant="text">
+            Primary
+          </Button>
+          <Button sx={{ margin: '1rem' }} variant="contained">
+            Primary
+          </Button>
+          <Button sx={{ margin: '1rem' }} disabled={true} variant="contained">
+            Primary
+          </Button>
+          <Button sx={{ margin: '1rem' }} variant="outlined">
+            Primary
+          </Button>
+          <Button sx={{ margin: '1rem' }} disabled={true} variant="outlined">
+            Primary
+          </Button>
         </Grid>
-        <Grid xs={8}>
-          <Button variant="text" color="secondary">
+        <Grid xs={12}>
+          <Button sx={{ margin: '1rem' }} variant="contained" color="secondary">
             Secondary
           </Button>
-          <Button variant="contained" color="secondary">
-            Secondary
-          </Button>
-          <Button variant="outlined" color="secondary">
+          <Button
+            sx={{ margin: '1rem' }}
+            disabled={true}
+            variant="contained"
+            color="secondary">
             Secondary
           </Button>
         </Grid>
-        <Grid xs={8}>
-          <Button variant="text" color="tertiary">
+        <Grid xs={12}>
+          <Button sx={{ margin: '1rem' }} variant="contained" color="tertiary">
             Tertiary
           </Button>
-          <Button variant="contained" color="tertiary">
-            Tertiary
-          </Button>
-          <Button variant="outlined" color="tertiary">
+          <Button
+            sx={{ margin: '1rem' }}
+            disabled={true}
+            variant="contained"
+            color="tertiary">
             Tertiary
           </Button>
         </Grid>

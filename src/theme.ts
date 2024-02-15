@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import {
+  NEUTRAL_300,
   NEUTRAL_50,
   PRIMARY_100,
   PRIMARY_500,
@@ -47,12 +48,22 @@ export const theme = createTheme({
           '&:hover': {
             boxShadow: 'none',
           },
-          // ':disabled': {
-          //   backgroundColor: 'red',
-          // },
+        },
+        containedPrimary: {
+          ':disabled': {
+            backgroundColor: NEUTRAL_300,
+          },
+        },
+        containedSecondary: {
+          ':disabled': {
+            backgroundColor: SECONDARY_100,
+          },
         },
         containedTertiary: {
           color: PRIMARY_500,
+          ':disabled': {
+            backgroundColor: TERTIARY_50,
+          },
         },
         // Styles applied to the root element if `variant="outlined"`.
         outlined: {
@@ -64,6 +75,10 @@ export const theme = createTheme({
             color: NEUTRAL_50,
             backgroundColor: PRIMARY_500,
           },
+          ':disabled': {
+            borderWidth: 1.5,
+            borderColor: NEUTRAL_300,
+          },
         },
         // Styles applied to the root element if `variant="text"`.
         text: {
@@ -72,6 +87,9 @@ export const theme = createTheme({
             borderRadius: 0,
             borderBottom: `1.5px solid ${PRIMARY_500}`,
             backgroundColor: 'transparent',
+          },
+          ':disabled': {
+            color: NEUTRAL_300,
           },
         },
       },
