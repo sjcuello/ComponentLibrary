@@ -4,10 +4,12 @@ export const PRIMARY_500 = '#202452';
 export const PRIMARY_900 = '#060727';
 // Secondary color
 export const SECONDARY_100 = '#FEFACF';
+export const SECONDARY_300 = '#FDEC71';
 export const SECONDARY_500 = '#FAD614';
 export const SECONDARY_900 = '#775E03';
 // Tertiary color
 export const TERTIARY_50 = '#EDF1FF';
+export const TERTIARY_100 = '#E2E7FF';
 export const TERTIARY_500 = '#7182FF';
 export const TERTIARY_900 = '#151C7A';
 // Neutral color

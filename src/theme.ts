@@ -3,12 +3,11 @@ import {
   NEUTRAL_50,
   PRIMARY_100,
   PRIMARY_500,
-  PRIMARY_900,
   SECONDARY_100,
+  SECONDARY_300,
   SECONDARY_500,
-  SECONDARY_900,
+  TERTIARY_100,
   TERTIARY_50,
-  TERTIARY_500,
   TERTIARY_900,
 } from './colors';
 
@@ -17,26 +16,64 @@ export const theme = createTheme({
     primary: {
       light: PRIMARY_100,
       main: PRIMARY_500,
-      dark: PRIMARY_900,
+      dark: TERTIARY_900,
       contrastText: NEUTRAL_50,
     },
     secondary: {
       light: SECONDARY_100,
       main: SECONDARY_500,
-      dark: SECONDARY_900,
-      contrastText: NEUTRAL_50,
+      dark: SECONDARY_300,
+      contrastText: PRIMARY_500,
     },
     tertiary: {
       light: TERTIARY_50,
-      main: TERTIARY_500,
-      dark: TERTIARY_900,
-      contrastText: NEUTRAL_50,
+      main: TERTIARY_50,
+      dark: TERTIARY_100,
+      contrastText: PRIMARY_500,
     },
   },
   components: {
     MuiButton: {
       defaultProps: {
         disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+        },
+        contained: {
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: 'none',
+          },
+          // ':disabled': {
+          //   backgroundColor: 'red',
+          // },
+        },
+        containedTertiary: {
+          color: PRIMARY_500,
+        },
+        // Styles applied to the root element if `variant="outlined"`.
+        outlined: {
+          borderWidth: 1.5,
+          borderColor: PRIMARY_500,
+          color: PRIMARY_500,
+          '&:hover': {
+            borderColor: PRIMARY_500,
+            color: NEUTRAL_50,
+            backgroundColor: PRIMARY_500,
+          },
+        },
+        // Styles applied to the root element if `variant="text"`.
+        text: {
+          color: PRIMARY_500,
+          '&:hover': {
+            borderRadius: 0,
+            borderBottom: `1.5px solid ${PRIMARY_500}`,
+            backgroundColor: 'transparent',
+          },
+        },
       },
     },
   },

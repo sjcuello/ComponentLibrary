@@ -10,4 +10,7 @@ declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     tertiary: true;
   }
+  interface ButtonClasses {
+    containedTertiary: string;
+  }
 }
