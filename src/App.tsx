@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Button, Grid, ThemeProvider } from '@mui/material';
 import { theme } from './theme';
-import EnhancedTable from './components/Table';
-import DataGridProDemo from './components/DataGrid';
+import TableMUI from './components/Table';
+import DataGrid from './components/DataGrid';
 import TabsMUI, { TabContent } from './components/Tab';
 
 const tabArray: TabContent[] = [
@@ -56,8 +56,8 @@ const tabArray: TabContent[] = [
       </Grid>
     ),
   },
-  { title: '📦 Simple Table', children: <EnhancedTable /> },
-  { title: '⚡️ Data Grid', children: <DataGridProDemo /> },
+  { title: '📦 Simple Table', children: <TableMUI /> },
+  { title: '⚡️ Data Grid', children: <DataGrid /> },
 ];
 
 const App = () => (
