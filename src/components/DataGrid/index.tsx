@@ -3,13 +3,12 @@ import Box from '@mui/material/Box';
 import { DataGridPro, GridToolbar } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator';
 
-export default function DataGridProDemo() {
+export default function DataGrid() {
   const { data } = useDemoData({
     dataSet: 'Commodity',
     rowLength: 100,
     editable: true,
   });
-  console.log('data', data);
 
   return (
     <Box sx={{ height: 520, width: '100%' }}>

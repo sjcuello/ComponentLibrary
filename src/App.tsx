@@ -5,11 +5,12 @@ import { Button, Grid, ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 import EnhancedTable from './components/Table';
 import DataGridProDemo from './components/DataGrid';
-import TabsMUI from './components/Tab';
+import TabsMUI, { TabContent } from './components/Tab';
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <div className="container">
+const tabArray: TabContent[] = [
+  {
+    title: '🎹 Buttons',
+    children: (
       <Grid container spacing={2}>
         <Grid xs={12} spacing={2}>
           <Button sx={{ margin: '1rem' }} variant="text">
@@ -53,9 +54,16 @@ const App = () => (
           </Button>
         </Grid>
       </Grid>
-      <EnhancedTable />
-      <DataGridProDemo />
-      <TabsMUI />
+    ),
+  },
+  { title: '📦 Simple Table', children: <EnhancedTable /> },
+  { title: '⚡️ Data Grid', children: <DataGridProDemo /> },
+];
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <div className="container">
+      <TabsMUI tabArray={tabArray} />
     </div>
   </ThemeProvider>
 );

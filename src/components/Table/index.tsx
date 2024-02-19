@@ -265,7 +265,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function EnhancedTable() {
+export default function TableMUI() {
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
   const [selected, setSelected] = React.useState<readonly number[]>([]);
@@ -340,7 +340,6 @@ export default function EnhancedTable() {
     [order, orderBy, page, rowsPerPage],
   );
 
-  console.log('createData', createData(1, 'Cupcake', 305, 3.7, 67, 4.3));
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>

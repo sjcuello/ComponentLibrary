@@ -1,49 +1,50 @@
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { TERTIARY_50 } from '../../colors';
 
-export default function TabsMUI() {
-  const [value, setValue] = React.useState('one');
+export interface TabContent {
+  children?: any;
+  title: string;
+}
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+interface TabsMUIProps {
+  tabArray: TabContent[];
+}
+const TabsMUI = ({ tabArray }: TabsMUIProps) => {
+  const [value, setValue] = React.useState('1');
+
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', height: '100%', backgroundColor: TERTIARY_50 }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
-            textColor="secondary"
-            indicatorColor="secondary"
+            textColor="primary"
+            indicatorColor="primary"
             variant="scrollable"
             scrollButtons
             allowScrollButtonsMobile>
-            <Tab label="Item One" value="1" />
-            <Tab label="Item Two" value="2" />
-            <Tab label="Item Three" value="3" />
-            <Tab label="Item Four" value="4" />
-            <Tab label="Item Five" value="5" />
-            <Tab label="Item Six" value="6" />
-            <Tab label="Item Seven" value="7" />
-            <Tab label="Item Eight" value="8" />
+            {tabArray.map((tab, index) => (
+              <Tab label={tab.title} value={`${index}`} />
+            ))}
           </TabList>
         </Box>
-        <TabPanel value="1">
-          <Box sx={{ backgroundColor: 'red' }}>Item One</Box>
-        </TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-        <TabPanel value="4">Item Four</TabPanel>
-        <TabPanel value="5">Item Five</TabPanel>
-        <TabPanel value="6">Item Six</TabPanel>
-        <TabPanel value="7">Item Seven</TabPanel>
-        <TabPanel value="8">Item Eight</TabPanel>
+
+        {tabArray.map((tab, index) => (
+          <TabPanel value={`${index}`} sx={{ height: '100%' }}>
+            {tab.children}
+          </TabPanel>
+        ))}
       </TabContext>
     </Box>
   );
-}
+};
+
+export default TabsMUI;
