@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Button, Grid, ThemeProvider } from '@mui/material';
 import { theme } from './theme';
+import EnhancedTable from './components/Table';
+import DataGridProDemo from './components/DataGrid';
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -50,6 +52,8 @@ const App = () => (
           </Button>
         </Grid>
       </Grid>
+      <EnhancedTable />
+      <DataGridProDemo />
     </div>
   </ThemeProvider>
 );
