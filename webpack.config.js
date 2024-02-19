@@ -2,9 +2,14 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const Dotenv = require('dotenv-webpack');
 const deps = require('./package.json').dependencies;
+
+const PORT = 3001;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: 'http://localhost:3001/',
+    publicPath:
+      argv.mode === 'development'
+        ? `http://localhost:${PORT}/`
+        : 'https://component-library-lake.vercel.app',
   },
 
   resolve: {
@@ -12,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3001,
+    port: PORT,
     historyApiFallback: true,
   },
 
@@ -44,7 +49,14 @@ module.exports = (_, argv) => ({
       name: 'ComponentLibrary',
       filename: 'remoteEntry.js',
       remotes: {},
-      exposes: {},
+      exposes: {
+        './DataGrid': './src/components/DataGrid/index.tsx',
+        './Interfaces': './src/interfaces/index.ts',
+        './MUI': './src/components/MUI/index.ts',
+        './Tab': './src/components/Tab/index.tsx',
+        './Table': './src/components/Table/index.tsx',
+        './ThemeContainer': './src/components/ThemeContainer/index.tsx',
+      },
       shared: {
         ...deps,
         react: {

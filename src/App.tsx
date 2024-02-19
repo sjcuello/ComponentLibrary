@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { Button, Grid, ThemeProvider } from '@mui/material';
-import { theme } from './theme';
+import { Button, Grid } from '@mui/material';
 import TableMUI from './components/Table';
 import DataGrid from './components/DataGrid';
-import TabsMUI, { TabContent } from './components/Tab';
+import TabsMUI from './components/Tab';
+import { TabContent } from './interfaces';
+import ThemeContainer from './components/ThemeContainer';
 
 const tabArray: TabContent[] = [
   {
@@ -61,11 +62,11 @@ const tabArray: TabContent[] = [
 ];
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeContainer>
     <div className="container">
       <TabsMUI tabArray={tabArray} />
     </div>
-  </ThemeProvider>
+  </ThemeContainer>
 );
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Failed to find the root element');
