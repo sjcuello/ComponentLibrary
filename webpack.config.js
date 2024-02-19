@@ -9,7 +9,7 @@ module.exports = (_, argv) => ({
     publicPath:
       argv.mode === 'development'
         ? `http://localhost:${PORT}/`
-        : 'https://component-library-lake.vercel.app',
+        : 'https://component-library-lake.vercel.app/',
   },
 
   resolve: {
