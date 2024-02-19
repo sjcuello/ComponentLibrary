@@ -5,6 +5,7 @@ import { Button, Grid, ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 import EnhancedTable from './components/Table';
 import DataGridProDemo from './components/DataGrid';
+import TabsMUI from './components/Tab';
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -54,6 +55,7 @@ const App = () => (
       </Grid>
       <EnhancedTable />
       <DataGridProDemo />
+      <TabsMUI />
     </div>
   </ThemeProvider>
 );
