@@ -1,4 +1,6 @@
+import { ReactNode } from 'react';
+
 export interface TabContent {
-  children?: any;
+  children?: ReactNode;
   title: string;
 }
